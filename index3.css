@@ -1,0 +1,196 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.outer_container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 6vw;
+}
+
+.score{
+    width: 90%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15vw;
+    text-align: center;
+    font-size: 2.25rem;
+    letter-spacing: 2px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.stats{
+    text-shadow:0px 0px 10px #00ef00, 0px 0px 10px #1100ff,0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff;
+}
+
+table{
+    height: 32rem;
+    width: 40rem;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+td{
+    font-size: 6rem;
+    font-family: cursive;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+tr{
+    height: calc(32rem/3);
+}
+
+td:nth-child(1){
+    border-right: 5px solid rgba(255, 255, 255, 0.726);
+}
+
+td:nth-child(2){
+    border-right: 5px solid rgba(255, 255, 255, 0.726);
+}
+
+tr:nth-child(2) td{
+    border-top: 5px solid rgba(255, 255, 255, 0.726);
+    border-bottom: 5px solid rgba(255, 255, 255, 0.726);
+}
+
+.blinking-animation{
+    animation: blinking 0.25s linear 7;
+}
+
+@keyframes blinking{
+    0% { 
+        transform: rotate(0deg);
+        scale: 1.2;  
+    }
+    25% { 
+        transform: rotate(10deg);
+        scale: 1.2;  
+    }
+    50% {
+         transform: rotate(0deg);
+         scale: 1.2;  
+    }
+    75% { 
+        transform: rotate(-10deg);
+        scale: 1.2; 
+    }
+    100% { 
+        transform: rotate(0deg);
+        scale: 1.2; 
+    }
+}
+
+
+/* #first{
+    scale: 1.2;
+    animation: blinking 0.25s linear;
+    animation-iteration-count: 7;
+} */
+
+.game{
+    position: relative;
+}
+
+#canva
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40rem;
+    height: 32rem;
+    pointer-events: none;
+}
+
+canvas{
+    border:1px solid black;
+}
+
+.popup{
+    position: absolute;
+    /* transform: translate(-50%,-50%); */
+    background-color: rgb(1, 17, 58);
+    width: 35vw;
+    height: 28vw;
+    border-radius: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    font-family: cursive;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 16px 3px rgb(82, 77, 222), 0px 0px 16px 3px green;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#message{
+    font-size: 2.5rem;
+}
+
+.options{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button{
+    font-family: cursive;
+    font-size: 2.25rem;
+    border-radius: 0.5rem;
+    border: 0;
+    padding: 0.5rem;
+    color: white;
+    background-color: rgb(52, 116, 137);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover{
+    scale: 1.25;
+}
+
+@keyframes fade_in{
+    0%{
+        transform: translateY(0%);
+        opacity: 1;
+        scale: 0;
+    }
+    50%{
+        transform: translateY(25%);
+        /* top: 26%; */
+        opacity: 1;
+        scale: 0.5;
+    }
+    100%{
+        transform: translateY(50%);
+        /* top: 55%; */
+        opacity: 1;
+        scale: 1;
+        pointer-events: all;
+    }
+}
+
+@keyframes fade_out{
+    0%{
+        opacity: 1;
+        scale: 1; 
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 0;
+        scale: 0;
+        transform: translateY(0%);
+        pointer-events: none;
+    }
+}

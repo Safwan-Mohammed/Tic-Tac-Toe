@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="index3.css">
+</head>
+
+<body>
+    <div class="outer_container">
+        <div class="score">
+            <div class="stats" id="player1">Player 1 - 0</div>
+            <div class="stats" id="draw">Draw - 0</div>
+            <div class="stats" id="player2">Player 2 - 0</div>
+        </div>
+            <div class="game">
+                <table>
+                    <tr class="row1 line">
+                        <td id="first" class="column1"></td>
+                        <td id="second" class="column2"></td>
+                        <td id="third" class="column3"></td>
+                    </tr>
+                    <tr class="row2">
+                        <td id="fourth" class="column1"></td>
+                        <td id="fifth" class="column2"></td>
+                        <td id="sixth" class="column3"></td>
+                    </tr>
+                    <tr class="row3">
+                        <td id="seventh" class="column1"></td>
+                        <td id="eigth" class="column2"></td>
+                        <td id="ninth" class="column3"></td>
+                    </tr>
+                </table>
+                <canvas id="canva"></canvas>
+            </div>
+            <div class="popup">
+                <div id="message"></div>
+                <div class="options">
+                    <button id="btn1"></button>
+                    <button id="btn2"></button>
+                </div>
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

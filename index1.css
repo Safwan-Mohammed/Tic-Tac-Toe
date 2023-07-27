@@ -1,0 +1,85 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+.outer_container{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.heading{
+    font-size: 8rem;
+    -webkit-text-stroke: 1px black;
+    
+}
+
+span{
+    letter-spacing: 20px;
+}
+
+span:nth-child(1){
+    animation: shadow 5s linear infinite;
+}
+
+span:nth-child(2){
+    animation: shadow 5s linear infinite;
+}
+span:nth-child(3){
+    animation: shadow 5s linear infinite;
+}
+
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes shadow{
+    0%{
+        text-shadow: 0px 0px 10px #00ef00, 0px 0px 10px #1100ff,0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff;
+    }
+    50%{
+        text-shadow: 0px 0px 35px #00ef00, 0px 0px 35px #1100ff,0px 0px 35px #00ef00, 0px 0px 35px #1100ff, 0px 0px 35px #00ef00, 0px 0px 35px #1100ff,  0px 0px 35px #00ef00, 0px 0px 35px #1100ff,  0px 0px 35px #00ef00, 0px 0px 35px #1100ff;
+    }
+    100%{
+        text-shadow: 0px 0px 10px #00ef00, 0px 0px 10px #1100ff,0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff;
+    }
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button{
+    padding: 0.5rem 1rem;
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+    color: #00ef8b;
+    border: 0;
+    margin-right: 3rem;
+    cursor: pointer;
+    transition: 0.5s;
+    border: 1px solid #00efab9b;
+    border-radius: 15px;
+}
+
+button:hover{
+    scale: 1.1;
+    background-color: #00efab9b;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0.1px 0.1px 15px 5px #00efab9b;
+    /* -webkit-box-reflect: below 10px; */
+}
