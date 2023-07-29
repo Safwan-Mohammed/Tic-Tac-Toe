@@ -7,6 +7,7 @@ let win1 = 0;
 let win2 = 0;
 let draw = 0;
 let winner = "";
+let turn = "";
 index = [0, 0, 0];
 
 const choice = document.getElementsByClassName("option");
@@ -27,6 +28,7 @@ for (i = 0; i < choice.length; i++) {
 }
 
 const data = document.querySelectorAll("td");
+const box = document.getElementsByClassName("box");
 
 addListeners();
 
@@ -50,6 +52,18 @@ function handleClick(event) {
       event.target.style.color = "rgb(50, 111, 235)";
     }
     event.target.innerHTML = player1;
+    turn = player2;
+    if(turn == "X"){
+      box[0].style.color = "black"
+      box[0].style.backgroundColor = "red"
+      box[1].style.color = "white"
+      box[1].style.backgroundColor = "black"
+    }else{
+      box[1].style.color = "black"
+      box[1].style.backgroundColor = "rgb(50, 111, 235)"
+      box[0].style.color = "white"
+      box[0].style.backgroundColor = "black"
+    }
     ++track;
     check_match();
     this.removeEventListener("click", handleClick);
@@ -60,6 +74,18 @@ function handleClick(event) {
       event.target.style.color = "rgb(50, 111, 235)";
     }
     event.target.innerHTML = player2;
+    turn = player1
+    if(turn == "X"){
+      box[0].style.color = "black"
+      box[0].style.backgroundColor = "red"
+      box[1].style.color = "white"
+      box[1].style.backgroundColor = "black"
+    }else{
+      box[1].style.color = "black"
+      box[1].style.backgroundColor = "rgb(50, 111, 235)"
+      box[0].style.color = "white"
+      box[0].style.backgroundColor = "black"
+    }
     ++track;
     check_match();
     this.removeEventListener("click", handleClick);
@@ -106,6 +132,10 @@ function check_match() {
     }
   }
   if (match == 1 || track == 9) {
+    box[0].style.color = "white"
+    box[0].style.backgroundColor = "black"
+    box[1].style.color = "white"
+    box[1].style.backgroundColor = "black"
     data.forEach((element) => {
       element.removeEventListener("click", handleClick);
     });

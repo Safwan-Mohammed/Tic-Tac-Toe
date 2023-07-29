@@ -1,9 +1,11 @@
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
-.outer_container{
+.outer_container {
     width: 100%;
     min-height: 100vh;
     background-color: black;
@@ -11,10 +13,10 @@ html, body{
     flex-direction: column;
     /* justify-content: space-between; */
     align-items: center;
-    gap: 6vw;
+    gap: 2vw;
 }
 
-.score{
+.score {
     width: 90%;
     height: 15vh;
     display: flex;
@@ -27,18 +29,43 @@ html, body{
     font-family: 'Times New Roman', Times, serif;
 }
 
-.stats{
-    text-shadow:0px 0px 10px #00ef00, 0px 0px 10px #1100ff,0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff;
+.turn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid white;
+    width: 50%;
+    height: 10vh;
 }
 
-table{
+.box {
+    height: inherit;
+    width: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-family: cursive;
+}
+
+.box:nth-child(1) {
+    border-right: 1px solid white;
+}
+
+.stats {
+    text-shadow: 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff, 0px 0px 10px #00ef00, 0px 0px 10px #1100ff;
+}
+
+table {
     height: 32rem;
     width: 40rem;
     border-collapse: collapse;
     table-layout: fixed;
 }
 
-td{
+td {
     font-size: 6rem;
     font-family: cursive;
     text-align: center;
@@ -47,47 +74,51 @@ td{
     cursor: pointer;
 }
 
-tr{
+tr {
     height: calc(32rem/3);
 }
 
-td:nth-child(1){
+td:nth-child(1) {
     border-right: 5px solid rgba(255, 255, 255, 0.726);
 }
 
-td:nth-child(2){
+td:nth-child(2) {
     border-right: 5px solid rgba(255, 255, 255, 0.726);
 }
 
-tr:nth-child(2) td{
+tr:nth-child(2) td {
     border-top: 5px solid rgba(255, 255, 255, 0.726);
     border-bottom: 5px solid rgba(255, 255, 255, 0.726);
 }
 
-.blinking-animation{
+.blinking-animation {
     animation: blinking 0.25s linear 7;
 }
 
-@keyframes blinking{
-    0% { 
+@keyframes blinking {
+    0% {
         transform: rotate(0deg);
-        scale: 1.2;  
+        scale: 1.2;
     }
-    25% { 
+
+    25% {
         transform: rotate(10deg);
-        scale: 1.2;  
+        scale: 1.2;
     }
+
     50% {
-         transform: rotate(0deg);
-         scale: 1.2;  
-    }
-    75% { 
-        transform: rotate(-10deg);
-        scale: 1.2; 
-    }
-    100% { 
         transform: rotate(0deg);
-        scale: 1.2; 
+        scale: 1.2;
+    }
+
+    75% {
+        transform: rotate(-10deg);
+        scale: 1.2;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        scale: 1.2;
     }
 }
 
@@ -98,12 +129,12 @@ tr:nth-child(2) td{
     animation-iteration-count: 7;
 } */
 
-.game{
+.game {
     position: relative;
+    padding-top: 1rem;
 }
 
-#canva
-{
+#canva {
     position: absolute;
     top: 0;
     left: 0;
@@ -112,11 +143,11 @@ tr:nth-child(2) td{
     pointer-events: none;
 }
 
-canvas{
-    border:1px solid black;
+canvas {
+    border: 1px solid black;
 }
 
-.popup{
+.popup {
     position: absolute;
     /* transform: translate(-50%,-50%); */
     background-color: rgb(1, 17, 58);
@@ -135,16 +166,16 @@ canvas{
     pointer-events: none;
 }
 
-#message{
+#message {
     font-size: 2.5rem;
 }
 
-.options{
+.options {
     display: flex;
     justify-content: space-evenly;
 }
 
-button{
+button {
     font-family: cursive;
     font-size: 2.25rem;
     border-radius: 0.5rem;
@@ -156,23 +187,25 @@ button{
     transition: 0.3s ease-in-out;
 }
 
-button:hover{
+button:hover {
     scale: 1.25;
 }
 
-@keyframes fade_in{
-    0%{
+@keyframes fade_in {
+    0% {
         transform: translateY(0%);
         opacity: 1;
         scale: 0;
     }
-    50%{
+
+    50% {
         transform: translateY(25%);
         /* top: 26%; */
         opacity: 1;
         scale: 0.5;
     }
-    100%{
+
+    100% {
         transform: translateY(50%);
         /* top: 55%; */
         opacity: 1;
@@ -181,13 +214,14 @@ button:hover{
     }
 }
 
-@keyframes fade_out{
-    0%{
+@keyframes fade_out {
+    0% {
         opacity: 1;
-        scale: 1; 
+        scale: 1;
         transform: translateY(50%);
     }
-    100%{
+
+    100% {
         opacity: 0;
         scale: 0;
         transform: translateY(0%);
