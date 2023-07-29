@@ -40,8 +40,10 @@ function handleClick(event) {
       player1 = id;
       if (player1 == "X") {
         player2 = "O";
+        turn = "X"
       } else {
         player2 = "X";
+        turn = "O"
       }
     }
   }
@@ -132,6 +134,7 @@ function check_match() {
     }
   }
   if (match == 1 || track == 9) {
+    turn = ""
     box[0].style.color = "white"
     box[0].style.backgroundColor = "black"
     box[1].style.color = "white"
@@ -218,7 +221,24 @@ function button_clicked() {
 }
 
 function addListeners() {
+  initial_turn()
   for (j = 0; j < data.length; j++) {
     data[j].addEventListener("click", handleClick);
+  }
+}
+
+function initial_turn(){
+  let params = new URLSearchParams(window.location.search)
+  id = params.get("id")
+  if(id == "O"){
+    box[1].style.color = "black"
+    box[1].style.backgroundColor = "rgb(50, 111, 235)"
+    box[0].style.color = "white"
+    box[0].style.backgroundColor = "black"
+  }else{
+    box[0].style.color = "black"
+    box[0].style.backgroundColor = "red"
+    box[1].style.color = "white"
+    box[1].style.backgroundColor = "black"
   }
 }
